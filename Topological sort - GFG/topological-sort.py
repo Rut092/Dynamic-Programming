@@ -18,11 +18,10 @@ class Solution:
             if p<len(q):
                 for i in adj[q[p]]:
                     indeg[i]-=1
-                for i in range(V):
-                        if indeg[i]==0:
-                            if vis[i]==-1:
-                                vis[i]=1
-                                q.append(i)
+                    if indeg[i]==0:
+                        if vis[i]==-1:
+                            vis[i]=1
+                            q.append(i)
                 p+=1
             else:
                 break
