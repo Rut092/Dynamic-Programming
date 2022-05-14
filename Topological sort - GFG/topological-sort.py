@@ -3,21 +3,31 @@ class Solution:
     #Function to return list containing vertices in Topological order.
     def topoSort(self, V, adj):
         # Code here
+        indeg=[0 for i in range(V)]
+        for i in adj:
+            for j in i:
+                indeg[j]+=1
+        q=[]
         vis=[-1 for i in range(V)]
-        self.stack=[]
+        p=0
         for i in range(V):
-            if vis[i]==-1:
+            if indeg[i]==0:
                 vis[i]=1
-                self.dfs(i,v,adj,vis)
-                self.stack.append(i)
-        return self.stack[::-1]
-                
-    def dfs(self,i,v,adj,vis):
-        for j in adj[i]:
-            if vis[j]==-1:
-                vis[j]=1
-                self.dfs(j,v,adj,vis)
-                self.stack.append(j)
+                q.append(i)
+        while(1):
+            if p<len(q):
+                for i in adj[q[p]]:
+                    indeg[i]-=1
+                for i in range(V):
+                        if indeg[i]==0:
+                            if vis[i]==-1:
+                                vis[i]=1
+                                q.append(i)
+                p+=1
+            else:
+                break
+        return q
+        
 #{ 
 #  Driver Code Starts
 # Driver Program
