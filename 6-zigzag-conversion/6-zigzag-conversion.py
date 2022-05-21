@@ -21,7 +21,6 @@ class Solution:
                     dp[i][j]=a
                     i+=1
                 if i==numRows:
-                    print(i)
                     i-=2
                     j+=1
                     while(i>=0 and len(st)!=0):
