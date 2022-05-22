@@ -9,4 +9,5 @@ class Solution:
                 value.append([i])
             else:
                 value[map.index(a)].append(i)
+        map=[]
         return [sorted(i) for i in sorted(value,key=len)]
