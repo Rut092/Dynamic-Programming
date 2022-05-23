@@ -6,31 +6,31 @@ class Solution:
     #Function to detect cycle in a directed graph.
     def isCyclic(self, V, adj):
         # code here
-        vis=[0 for i in range(V)]
-        dfsvis=[0 for i in range(V)]
-        op=[]
-        
-        def dfs(ind):
-            vis[ind]=1
-            dfsvis[ind]=1
-            
-            for j in adj[ind]:
-                if vis[j]==0:
-                    dfs(j)
-                else:
-                    if dfsvis[j]==1:
-                        op.append(True)
-                        return 
-            dfsvis[ind]=0
-            
+        indeg=[0 for i in range(V)]
+        vis=indeg.copy()
+        for i in adj:
+            for j in i:
+                indeg[j]+=1
+        queue=[]
         for i in range(V):
-            if vis[i]==0:
-                if len(op)==0:
-                    dfs(i)
-                if len(op)>0:
-                    return True
-        return False
-            
+            if indeg[i]==0:
+                vis[i]=1
+                queue.append(i)
+        p=0
+        while(1):
+            if p<len(queue):
+                for i in (adj[queue[p]]):
+                    indeg[i]-=1
+                    if indeg[i]==0:
+                        if vis[i]==0:    
+                            vis[i]=1
+                            queue.append(i)
+                p+=1
+            else:
+                break
+        if len(queue)==V:
+            return False
+        return True
         
         
         
