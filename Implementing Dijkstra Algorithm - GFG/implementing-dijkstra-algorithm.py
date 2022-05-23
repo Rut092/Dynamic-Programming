@@ -10,7 +10,6 @@ class Solution:
         
         
         while(len(dis_node)>0):
-            a=sorted(dis_node,key= lambda x:x[0])
             x,y=dis_node[0]
             for i in adj[y]:
                 if dist[i[0]]>x+i[1]:
