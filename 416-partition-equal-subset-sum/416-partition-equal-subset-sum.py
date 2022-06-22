@@ -18,5 +18,5 @@ class Solution:
         
         if sum(nums)%2==1:
             return False
-        dp=[[-1 for i in range(sum(nums)//2+1)] for j in range(len(nums)+1)]
+        dp=[[-1 for i in range(sum(nums)//2+1)] for j in range(len(nums))]
         return fun(len(nums)-1,sum(nums)//2)
