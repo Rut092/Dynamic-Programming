@@ -1,6 +1,5 @@
 class Solution:
     def canPartition(self, nums: List[int]) -> bool:
-        
         def fun(ind,target):
             if dp[ind][target]!=-1:
                 return dp[ind][target]
@@ -21,5 +20,3 @@ class Solution:
             return False
         dp=[[-1 for i in range(sum(nums)//2+1)] for j in range(len(nums)+1)]
         return fun(len(nums)-1,sum(nums)//2)
-        
-        
