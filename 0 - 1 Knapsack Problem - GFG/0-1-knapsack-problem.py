@@ -5,32 +5,28 @@ class Solution:
     #Function to return max value that can be put in knapsack of capacity W.
     def knapSack(self,W, wt, val, n):
         # code here
-        dp=[[-1 for i in range(W+1)] for j in range(n)]
+        dp=[[0 for i in range(W+1)] for j in range(n)]
         
-        def fun(ind,weight):
-            if weight==0:
-                return 0
-            if ind==0:
-                if weight>=wt[ind]:
-                    return val[ind]
-                    
-                else:
-                    return 0
-                    
-            if dp[ind][weight]!=-1:
-                return dp[ind][weight]
-            
-            not_take=fun(ind-1,weight)
-            take=0
-            
-            if weight>=wt[ind]:
-                take=val[ind]+fun(ind-1,weight-wt[ind])
+        for ind in range(n):
+            for weight in range(W+1):
                 
-            dp[ind][weight]= max(take,not_take)
-            
-            return dp[ind][weight]
-            
-        return fun(n-1,W)
+                if weight==0:
+                    dp[ind][weight]=0
+                    
+                elif ind==0:
+                    if weight>=wt[ind]:
+                        dp[ind][weight]=val[ind]
+                        
+                else:
+                    not_take=dp[ind-1][weight]
+                    take=0
+                    
+                    if weight>=wt[ind]:
+                        take=dp[ind-1][weight-wt[ind]]+val[ind]
+                    
+                    dp[ind][weight]=max(take,not_take)
+        
+        return dp[-1][-1]
         
 
 #{ 
