@@ -14,7 +14,7 @@ class Solution:
                     dp[i][j]=max(dp[i-1][j],dp[i][j-1])
         
         
-        return max(len(A),len(B))-2*dp[-1][-1]+min(len(A),len(B))
+        return len(A)+len(B)-2*dp[-1][-1]
         
         
 #{ 
