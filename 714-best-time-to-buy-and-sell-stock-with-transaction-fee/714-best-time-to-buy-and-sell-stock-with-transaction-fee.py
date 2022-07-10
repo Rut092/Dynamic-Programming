@@ -1,7 +1,7 @@
 class Solution:
     def maxProfit(self, prices: List[int], fee: int) -> int:
-        prev=[0 for i in range(2)]
-        curr=prev.copy()
+        prev=[0,0]
+        curr=[0,0]
         
         for ind in range(len(prices)-1,-1,-1):
                 prev[1]=max( -prices[ind]+curr[0],curr[1])
