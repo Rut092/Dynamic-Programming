@@ -1,18 +1,19 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        dp=[[0 for i in range(len(prices)+1)] for j in range(2)]
+        curr=[0,0]
+        prev=[0,0]
         
         
         
         for ind in range(len(prices)-1,-1,-1):
             for buy in range(2):
                 if buy:
-                    profit=max(-prices[ind]+dp[0][ind+1],dp[1][ind+1])
+                    profit=max(-prices[ind]+curr[0],curr[1])
                 else:
-                    profit=max(prices[ind]+dp[1][ind+1],dp[0][ind+1])
+                    profit=max(prices[ind]+curr[1],curr[0])
                     
-                dp[buy][ind]=profit
-                
-        return dp[1][0]
+                prev[buy]=profit
+            curr=prev
+        return prev[1]
         
         
