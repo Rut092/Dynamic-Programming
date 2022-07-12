@@ -6,25 +6,22 @@ class Solution:
     def longestSubsequence(self,a,n):
         # code here
        
-        dp={}
+        dp=[[-1 for i in range(n)] for j in range(n)]
         
-        def ls(ind,ele):
+        def ls(ind,prev):
             if ind==n:
                 return 0
-            try:
-                return dp[str([ind,ele])]
-            except:
+            if dp[ind][prev+1]!=-1:
+                return dp[ind][prev+1]
+            else:
                 z=0
-                if a[ind]>ele:
-                    z= 1+ls(ind+1,a[ind])
-                b=ls(ind+1,ele)
+                if prev==-1 or a[ind]>a[prev]:
+                    z= 1+ls(ind+1,ind)
+                b=ls(ind+1,prev)
                 
-                dp[str([ind,ele])]=max(z,b)
+                dp[ind][prev+1]=max(z,b)
                 return max(z,b)
-                
-        #print(dp)
         return ls(0,-1)
-
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
