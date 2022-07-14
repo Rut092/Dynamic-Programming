@@ -5,8 +5,7 @@ class Solution:
         j=0
         ans=sumi
         for i in range(k,n):
-            sumi+=nums[i]
-            sumi-=nums[j]
+            sumi=nums[i]+sumi-nums[j]
             j+=1
             ans=max(sumi,ans)
         return ans/k
