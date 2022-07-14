@@ -1,7 +1,7 @@
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
         n=len(nums)
-        if n>=k:
+        if n>=1:
             sumi=sum(nums[0:k])
             j=0
             ans=sumi
@@ -10,6 +10,5 @@ class Solution:
                 sumi-=nums[j]
                 j+=1
                 ans=max(sumi,ans)
-        else:
-            return sum(nums)/n
+        
         return ans/k
