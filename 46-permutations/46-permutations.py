@@ -10,7 +10,7 @@ class Solution:
                 if dict[i]==0:
                     dict[i]=1
                     temp.append(S[i])
-                    a=f(s,temp)
+                    f(s,temp)
                     temp.pop(-1)
                     dict[i]=0
             if len(temp)==len(S):
