@@ -2,7 +2,6 @@ class Solution:
     def permute(self, S: List[int]) -> List[List[int]]:
         dict={}
         arr=[]
-        temp=[]
         for i in range(len(S)):
             dict[i]=0
         def f(s,temp):
@@ -16,5 +15,5 @@ class Solution:
             if len(temp)==len(S):
                 arr.append(temp.copy())
                 
-        f(S,temp)
+        f(S,[])
         return arr
