@@ -3,17 +3,19 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        if len(nums)<=1:
-            return 
-        x=len(nums)-2
-        while(x>=0 and nums[x]>=nums[x+1]):
-            x-=1
-        if x<0:
-            nums[:]=nums[::-1]
+    
+        if len(nums)==1:
+            return nums
         else:
-            z=len(nums)-1
-            while(nums[z]<=nums[x]):
-                z-=1
-            nums[z],nums[x]=nums[x],nums[z]
-            nums[x+1:]=reversed(nums[x+1:])
-            
+            a=len(nums)-2
+            while(a>=0 and nums[a]>=nums[a+1]):
+                a-=1
+            if a<0:
+                nums[:]=nums[::-1]
+            else:
+                b=len(nums)-1
+                while(nums[a]>=nums[b]):
+                    b-=1
+                nums[a],nums[b]=nums[b],nums[a]
+                nums[a+1:]=reversed(nums[a+1:])
+                return nums
