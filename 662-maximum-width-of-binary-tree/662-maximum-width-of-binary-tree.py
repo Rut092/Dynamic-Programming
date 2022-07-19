@@ -9,7 +9,7 @@ class Solution:
         
         queue=[[root,1]]
         maxi=0
-        while(1):
+        while(queue):
             start=None
             n=len(queue)
             
@@ -27,7 +27,5 @@ class Solution:
                     queue.append([node.right,2*val+1])
                 
                 maxi=max(maxi,val-start+1)
-            if len(queue)==0:
-                break
             
         return maxi
