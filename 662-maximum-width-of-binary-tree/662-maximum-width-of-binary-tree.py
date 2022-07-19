@@ -14,17 +14,13 @@ class Solution:
             n=len(queue)
             
             for i in range(len(queue)):
-                
                 node,val=queue.pop(0)
-
                 if start==None:
-                    start=val
-                    
+                    start=val  
                 if node.left!=None:
                     queue.append([node.left,2*val])  
                 if node.right!=None:
                     queue.append([node.right,2*val+1])
-                
                 maxi=max(maxi,val-start+1)
             
         return maxi
