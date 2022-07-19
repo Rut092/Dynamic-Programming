@@ -15,9 +15,8 @@ class Solution:
             
             for i in range(len(queue)):
                 
-                node,val=queue[0]
-                queue.pop(0)
-        
+                node,val=queue.pop(0)
+
                 if start==None:
                     start=val
                     
