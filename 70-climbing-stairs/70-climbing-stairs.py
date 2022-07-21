@@ -7,6 +7,5 @@ class Solution:
             return 1
         for i in range(2,n+1):
             temp=curr+prev
-            prev=curr
-            curr=temp
+            prev,curr=curr,temp
         return curr
