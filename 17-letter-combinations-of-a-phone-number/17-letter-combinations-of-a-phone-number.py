@@ -4,7 +4,7 @@ class Solution:
         dict={'2':'abc','3':'def','4':'ghi','5':'jkl','6':'mno','7':'pqrs','8':'tuv','9':'wxyz'}
         length=len(digits)
         def f(ind,sak):
-            if ind==len(digits):
+            if ind==length:
                 return ''
             for j in dict[digits[ind]]:
                 sak+=j
