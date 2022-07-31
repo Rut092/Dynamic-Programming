@@ -3,9 +3,12 @@ class Solution:
         a=['(',')']
         arr=[]
         temp=''
+        
         def f(open,close,temp):
+            
             if open==n and close==n:
                 arr.append(temp)
+                
             elif open==n:
                 temp+=')'
                 f(open,close+1,temp)
@@ -16,6 +19,5 @@ class Solution:
                 if open>close:
                     temp+=')'
                     f(open,close+1,temp)
-                    
         f(0,0,temp)
         return arr
