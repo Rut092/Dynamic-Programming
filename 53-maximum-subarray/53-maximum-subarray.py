@@ -4,7 +4,7 @@ class Solution:
         temp=0
         for i in nums:
             temp+=i
-            maxi=max(maxi,temp,i)
+            maxi=max(maxi,temp)
             if temp<0:
                 temp=0
         return maxi
