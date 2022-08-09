@@ -4,8 +4,6 @@ class Solution:
         indeg=[0]*numCourses
 
         for i in prerequisites:
-            if i[0]==i[1]:
-                return False
             dict[i[0]].append(i[1])
             indeg[i[1]]+=1
                 
