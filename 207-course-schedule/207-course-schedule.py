@@ -21,7 +21,6 @@ class Solution:
                 if indeg[i]==0:
                     temp.append(i)
             
-        print(count)
         if count==numCourses:
             return True
         else:
