@@ -15,7 +15,7 @@ class Solution:
                 ind2=lst
                 for ind1 in range(fst-1,fst+2):
                     if ind1>=0 and ind1<n and grid[ind1][ind2]=='1' and vis[ind1][ind2]==0:
-                        vis[ind1][ind2]=1
+                        vis[fst][lst]=1
                         queue.append([ind1,ind2])
                 ind1=fst
                 for ind2 in range(lst-1,lst+2):
