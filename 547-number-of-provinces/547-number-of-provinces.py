@@ -6,9 +6,10 @@ class Solution:
         graph=[[] for i in range(a)]
 
         for i in range(a):
-            for j in range(a):
-                if i!=j and isConnected[i][j]==1:
+            for j in range(i+1,a):
+                if isConnected[i][j]==1:
                     graph[i].append(j)
+                    graph[j].append(i)
                     
         def dfs(n):
             vis[n]=1
