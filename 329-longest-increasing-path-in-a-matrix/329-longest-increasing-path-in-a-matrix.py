@@ -18,13 +18,13 @@ class Solution:
                     p=1+bfs(i,j+1,matrix[i][j])
                     dp[i][j]=max(m,n,o,p)
                     maxi[0]=max(maxi[0],dp[i][j])
-                    
+    
                     return dp[i][j]
-                    
                 else:
                     return 0
-
+            
         for i in range(b):
             for j in range(a):
                 bfs(i,j,-1)
+                
         return maxi[0]
