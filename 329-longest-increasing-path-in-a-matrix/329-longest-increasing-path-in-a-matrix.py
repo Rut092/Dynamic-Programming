@@ -27,5 +27,4 @@ class Solution:
         for i in range(b):
             for j in range(a):
                 bfs(i,j,-1)
-        print(dp)
         return maxi[0]
