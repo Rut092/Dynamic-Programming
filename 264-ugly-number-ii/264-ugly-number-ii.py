@@ -1,7 +1,9 @@
 class Solution:
     def nthUglyNumber(self, n: int) -> int:
         dp=[1]
-        p1,p2,p3=0,0,0
+        p1=0
+        p2=0
+        p3=0
         for i in range(1,n):
             dp.append(min(2*dp[p1],3*dp[p2],5*dp[p3]))
             if dp[i]==2*dp[p1]:
