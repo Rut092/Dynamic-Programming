@@ -8,9 +8,12 @@ class Solution:
                 dict[s[i]]+=1
             except:
                 dict[s[i]]=1
+                
             if (i-l+1)- max(dict.values())>k:
                 dict[s[l]]-=1
                 l+=1
+                
             ans=max(ans,i+1-l)
+            
         return ans
             
