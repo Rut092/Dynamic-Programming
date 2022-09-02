@@ -11,7 +11,6 @@ class Solution:
                 if j==0:
                     string+=strs[j][i]
                 else:
-                    print(strs[j])
                     if strs[j][i]!=string[-1]:
                         string=string[:-1]
                         return string
