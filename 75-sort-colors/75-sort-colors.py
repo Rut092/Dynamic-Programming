@@ -19,6 +19,3 @@ class Solution:
             else:
                 nums[k],nums[j]=nums[j],nums[k]
                 k-=1
-                
-            print(nums)
-        print(nums)
