@@ -5,19 +5,20 @@ class Solution:
         Do not return anything, modify nums in-place instead.
         """
         i=0
+        k=len(nums)-1
         j=0
-        for p in nums:
-            if p==0:
+        while(j<=k):
+            if nums[j]==0:
+                nums[i],nums[j]=nums[j],nums[i]
                 i+=1
-            elif p==1:
                 j+=1
                 
-        for p in range(len(nums)):
-            if i>0:
-                nums[p]=0
-                i-=1
-            elif j>0:
-                nums[p]=1
-                j-=1
+            elif nums[j]==1:
+                j+=1
+                
             else:
-                nums[p]=2
+                nums[k],nums[j]=nums[j],nums[k]
+                k-=1
+                
+            print(nums)
+        print(nums)
