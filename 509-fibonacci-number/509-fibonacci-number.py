@@ -4,7 +4,6 @@ class Solution:
         t2=1
         if n==0:
             return t1
-        
         for i in range(2,n+1):
             temp=t1+t2
             t1=t2
