@@ -8,11 +8,9 @@ class Solution:
         dp=matrix.copy()
         
         for i in range(b):
-            dp[i][0]=matrix[i][0]
             count+=matrix[i][0]
             
         for j in range(1,a):
-            dp[0][j]=matrix[0][j]
             count+=matrix[0][j]
             
         
