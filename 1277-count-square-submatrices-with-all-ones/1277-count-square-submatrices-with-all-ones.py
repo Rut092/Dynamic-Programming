@@ -12,8 +12,6 @@ class Solution:
             
         for j in range(1,a):
             count+=matrix[0][j]
-            
-        
 
         for i in range(1,b):
             for j in range(1,a):
