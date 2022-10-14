@@ -9,7 +9,6 @@ class Solution:
         
         for i in a:
             d[i]=0
-        
         for i in a:
             d[i]+=1
         
@@ -22,6 +21,7 @@ class Solution:
                     d[a[i]-1]-=1
                 except:
                     pass
+    
         return temp
 
 
