@@ -23,15 +23,14 @@ class Solution:
                 
                 if p1<l1 and p2<l2: 
                     
-                    if arr1[p1]>arr2[p2]:
+                    if arr1[p1]<=arr2[p2]:
+                        temp.append(arr1[p1])
+                        p1+=1
+                    
+                    else:
                         temp.append(arr2[p2])
                         self.inv+=l1-p1
                         p2+=1
-                    
-                    else:
-                         
-                        temp.append(arr1[p1])
-                        p1+=1
                         
                 else:
                     
@@ -41,8 +40,7 @@ class Solution:
                         
                     else:
                         temp+=arr1[p1:]
-                        
-                    #print(self.inv)
+                    
                     return temp
         
         
