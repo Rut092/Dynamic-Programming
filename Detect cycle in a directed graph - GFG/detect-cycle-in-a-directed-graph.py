@@ -7,36 +7,33 @@ class Solution:
     def isCyclic(self, V, adj):
         # code here
         indeg=[0 for i in range(V)]
-        vis=indeg.copy()
+        vis=[0 for i in range(V)]
+        
         for i in adj:
             for j in i:
                 indeg[j]+=1
-        queue=[]
+        
+        que=[]
         for i in range(V):
             if indeg[i]==0:
+                que.append(i)
                 vis[i]=1
-                queue.append(i)
-        p=0
-        while(1):
-            if p<len(queue):
-                for i in (adj[queue[p]]):
-                    indeg[i]-=1
-                    if indeg[i]==0:
-                        if vis[i]==0:    
-                            vis[i]=1
-                            queue.append(i)
-                p+=1
-            else:
-                break
-        if len(queue)==V:
-            return False
-        return True
+        i=0
+        while(len(que)>i):
+            a=que[i]
+            i+=1
+            
+            for j in adj[a]:
+                indeg[j]-=1
+                if indeg[j]==0:
+                    que.append(j)
         
-        
-        
-        
+        #print(que)
+        return len(que)!=V
+
+
 #{ 
-#  Driver Code Starts
+ # Driver Code Starts
 #Initial Template for Python 3
 
 import sys
