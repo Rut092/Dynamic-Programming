@@ -4,23 +4,33 @@ class Solution:
     def topoSort(self, V, adj):
         # Code here
         
-        arr=[]
-        vis=[0 for i in range(V)]
+        indeg=[0 for i in range(V)]
+        #vis=[0 for i in range(V)]
         
-        def dfs(node):
-            if vis[node]==0:
-                vis[node]=1
+        for i in adj:
+            for j in i:
+                indeg[j]+=1
                 
-                for i in adj[node]:
-                    dfs(i)
-                    
-                arr.append(node)
-                    
-        for j in range(V):
-            if vis[j]==0:
-                dfs(j)
+        que=[]
         
-        return arr[::-1]
+        for i in range(V):
+            if indeg[i]==0:
+                que.append(i)
+            
+        i=0    
+        while(len(que)>i):
+            a=que[i]
+            i+=1
+            
+            for j in adj[a]:
+                indeg[j]-=1
+                if indeg[j]==0:
+                    que.append(j)
+            
+        return que
+            
+            
+        
 
 #{ 
  # Driver Code Starts
