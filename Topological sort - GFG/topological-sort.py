@@ -5,7 +5,6 @@ class Solution:
         # Code here
         
         indeg=[0 for i in range(V)]
-        #vis=[0 for i in range(V)]
         
         for i in adj:
             for j in i:
