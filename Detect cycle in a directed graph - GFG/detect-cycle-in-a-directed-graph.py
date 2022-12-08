@@ -7,17 +7,13 @@ class Solution:
     def isCyclic(self, V, adj):
         # code here
         indeg=[0 for i in range(V)]
-        vis=[0 for i in range(V)]
-        
         for i in adj:
             for j in i:
                 indeg[j]+=1
-        
         que=[]
         for i in range(V):
             if indeg[i]==0:
                 que.append(i)
-                vis[i]=1
         i=0
         while(len(que)>i):
             a=que[i]
