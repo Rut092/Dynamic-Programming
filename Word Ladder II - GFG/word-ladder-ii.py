@@ -17,7 +17,7 @@ class Solution:
 		deleting=set()
 		sh=99
 		val=0
-		ap=99
+
 		while(i<len(que)):
 		    a,b,ans=que[i]
 		    i+=1
@@ -39,7 +39,8 @@ class Solution:
 		            l="".join(temp)
 		            
 		            if l in abc and l!=a:
-    		            que.append([l,b+1,ans+[l]])
+		                if b<sh:
+        		            que.append([l,b+1,ans+[l]])
 		                deleting.add(l)
 		                
 		            temp[j]=a[j]
