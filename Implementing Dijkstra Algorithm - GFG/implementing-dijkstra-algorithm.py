@@ -4,25 +4,24 @@ class Solution:
     #from the source vertex S.
     def dijkstra(self, V, adj, S):
         #code here
-        dis_node=[[0,S]]
-        dist=[999999 for i in range(V)]
+        que=[[0,S]]
+        dist=[2**32 for i in range(V)]
         dist[S]=0
         
-        
-        while(len(dis_node)>0):
-            x,y=dis_node[0]
-            for i in adj[y]:
-                if dist[i[0]]>x+i[1]:
-                    dist[i[0]]=x+i[1]
-                    dis_node.append([x+i[1],i[0]])
-            dis_node.pop(0)
-            dis_node=sorted(dis_node,key= lambda x:x[0])      
-        
-        return (dist)
-        
+        p=0
+        while(p<len(que)):
+            a,b=que[p]
+            p+=1
+            for i in adj[b]:
+                if dist[i[0]]> a+i[1]:
+                    dist[i[0]]=a+i[1]
+                    que.append((dist[i[0]],i[0]))
+                    
+        return dist
+
 
 #{ 
-#  Driver Code Starts
+ # Driver Code Starts
 #Initial Template for Python 3
 import atexit
 import io
