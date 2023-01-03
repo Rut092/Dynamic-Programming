@@ -4,33 +4,35 @@ class Solution:
     
     #Function to return max value that can be put in knapsack of capacity W.
     def knapSack(self,W, wt, val, n):
+       
         # code here
-        dp=[[0 for i in range(W+1)] for j in range(n)]
+        dp=[[0 for i in range(W+1)] for i in range(n)]
         
-        for ind in range(n):
-            for weight in range(W+1):
+        def f(index,weight):
+            if index==0 or weight==0:
+                if index==0 and wt[0]<=weight:
+                    return val[0]
                 
-                if weight==0:
-                    dp[ind][weight]=0
-                    
-                elif ind==0:
-                    if weight>=wt[ind]:
-                        dp[ind][weight]=val[ind]
-                        
                 else:
-                    not_take=dp[ind-1][weight]
-                    take=0
-                    
-                    if weight>=wt[ind]:
-                        take=dp[ind-1][weight-wt[ind]]+val[ind]
-                    
-                    dp[ind][weight]=max(take,not_take)
-        
-        return dp[-1][-1]
-        
+                    return 0
+            
+            if dp[index][weight]!=0:
+                return dp[index][weight]
+            
+            a=0
+            if wt[index]<=weight:
+                a=val[index]+f(index-1,weight-wt[index])
+                
+            b=f(index-1,weight)
+              
+            dp[index][weight]=max(a,b)      
+            return dp[index][weight]
+            
+        return f(n-1,W)
+            
 
 #{ 
-#  Driver Code Starts
+ # Driver Code Starts
 #Initial Template for Python 3
 import atexit
 import io
