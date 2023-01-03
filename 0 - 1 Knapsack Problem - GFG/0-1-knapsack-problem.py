@@ -8,28 +8,24 @@ class Solution:
         # code here
         dp=[[0 for i in range(W+1)] for i in range(n)]
         
-        def f(index,weight):
-            if index==0 or weight==0:
-                if index==0 and wt[0]<=weight:
-                    return val[0]
-                
+        
+        for index in range(n):
+            for weight in range(W+1):
+                if index==0 or weight==0:
+                    if index==0 and wt[0]<=weight:
+                        dp[index][weight]= val[0]
+                    else:
+                        dp[index][weight]= 0
+                        
                 else:
-                    return 0
-            
-            if dp[index][weight]!=0:
-                return dp[index][weight]
-            
-            a=0
-            if wt[index]<=weight:
-                a=val[index]+f(index-1,weight-wt[index])
+                    a=0
+                    if wt[index]<=weight:
+                        a=val[index]+dp[index-1][weight-wt[index]]
+                    b=dp[index-1][weight]
+                      
+                    dp[index][weight]=max(a,b)  
                 
-            b=f(index-1,weight)
-              
-            dp[index][weight]=max(a,b)      
-            return dp[index][weight]
-            
-        return f(n-1,W)
-            
+        return dp[-1][-1]
 
 #{ 
  # Driver Code Starts
